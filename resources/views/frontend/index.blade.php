@@ -60,16 +60,27 @@
                                 <div class="card box-shadow-0 border-info">
                                     <div class="card-content collpase show">
                                         <div class="card-body card-dashboard text-center">
+<<<<<<< HEAD
                                             <div v-for="st in student" v-if="search == st.nis">
                                                 @if ($st->status == 'LULUS')
                                                     <div class="alert alert-success" role="alert"
                                                         v-if="st.status == 'LULUS'">
+=======
+                                            <div v-for="st in student" v-if="search == st.no_exam ">
+                                                @if ($st->status == 1)
+                                                    <div class="alert alert-success" role="alert"
+                                                        v-if="st.status == 1">
+>>>>>>> a1d79b0 (fixing responsive and layout)
                                                         <strong>Selamat! {{ $st->name }}</strong>
                                                         <p>ANDA DINYATAKAN LULUS DARI SMK NEGERI 1 CIREBON</p>
                                                         <br>
                                                         <div class="text-start">
                                                             <h5 class="text-dark"><b>NIS</b>&nbsp; &nbsp; &nbsp;
+<<<<<<< HEAD
                                                                 &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nis }}
+=======
+                                                                &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nisn }}
+>>>>>>> a1d79b0 (fixing responsive and layout)
                                                             </h5>
                                                             <br>
                                                             <h5 class="text-dark"><b>NAMA</b>&nbsp; &nbsp; &nbsp;
@@ -79,6 +90,7 @@
                                                                 &nbsp; : {{ $st->class }}</h5>
                                                         </div>
                                                     </div>
+<<<<<<< HEAD
                                                 @else
                                                     <div class="alert alert-danger" role="alert" v-if="st.status == 'TIDAK LULUS'"
                                                         v-if="search != st.nis">
@@ -87,6 +99,28 @@
                                                         <div class="text-start">
                                                             <h5 class="text-dark"><b>NIS</b>&nbsp; &nbsp; &nbsp;
                                                                 &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nis }}</h5>
+=======
+                                                    <div>
+                                                        <a href="/" class="btn btn-success btn-sm">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                height="16" fill="currentColor"
+                                                                class="bi bi-file-earmark-check-fill"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm1.354 4.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                                                            </svg>
+                                                            Cetak SKL</a>
+                                                        <a href="/" class="btn btn-primary btn-sm">Kembali</a>
+                                                    </div>
+                                                @elseif($st->status == 2)
+                                                    <div class="alert alert-danger" role="alert" v-if="st.status == 2"
+                                                        v-if="search != st.no_exam">
+                                                        <strong>Mohon Maaf {{ $st->name }}</strong>
+                                                        <p>ANDA TIDAK LULUS DARI SMK NEGERI 1 CIREBON</p>
+                                                        <div class="text-start">
+                                                            <h5 class="text-dark"><b>NIS</b>&nbsp; &nbsp; &nbsp;
+                                                                &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nisn }}</h5>
+>>>>>>> a1d79b0 (fixing responsive and layout)
                                                             <br>
                                                             <h5 class="text-dark"><b>NAMA</b>&nbsp; &nbsp; &nbsp;
                                                                 &nbsp; : {{ $st->name }}</h5>
