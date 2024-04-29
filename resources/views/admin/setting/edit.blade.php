@@ -90,9 +90,9 @@ Edit Pengumuman
         el: '#app',
         data: {
             setting: JSON.parse(String.raw `{!! json_encode($setting) !!}`),
-            status: '',
-            date: '',
-            time: '',
+            status: '{{ $setting->status }}',
+            date: '{{ $setting->date }}',
+            time: '{{ $setting->time }}',
         },
         methods: {
 

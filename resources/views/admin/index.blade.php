@@ -23,7 +23,7 @@ Admin
 <div id="kick-start" class="card">
     <div class="card-header">
         <h4 class="card-title">Selamat datang di Web admin CEK-LULUS !</h4>
-        <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+        {{-- <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a> --}}
 
     </div>
     <div class="card-content collapse show">
@@ -75,7 +75,7 @@ Admin
                                         </div>
                                         <div class="media-body white text-right">
                                             <h3>{{ $student_pending }}</h3>
-                                            <span>Kelulusan Tertunda</span>
+                                            <span>Siswa Tidak Lulus</span>
                                         </div>
                                     </div>
                                 </div>
