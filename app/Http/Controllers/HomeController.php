@@ -24,7 +24,7 @@ class HomeController extends Controller
         $setting = Setting::first();
         $dt = Carbon::now()->format('Y-m-d H:i:s');
 
-        $student = Student::query()->where('no_exam', $req_search)->get();
+        $student = Student::query()->where('nisn', $req_search)->get();
         $studentCheck =  $student->count();
 
         if (isset($req_search)) {

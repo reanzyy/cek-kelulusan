@@ -17,10 +17,9 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('nisn');
             $table->string('name');
-            $table->string('no_exam')->nullable();
             $table->string('class');
-            $table->integer('status');
-            $table->string('message')->nullable();
+            $table->string('status');
+            $table->string('path');
             $table->timestamps();
         });
     }

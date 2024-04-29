@@ -17,11 +17,11 @@ class AdminController extends Controller
     {
         $student = Student::all();
         $student_graduated = $student->filter(function ($item) {
-            return $item->status == 1;
+            return $item->status == 'LULUS';
         })->count();
 
         $student_pending = $student->filter(function ($item) {
-            return $item->status == 2;
+            return $item->status == "TIDAK LULUS";
         })->count();
 
         $total_student = Student::all()->count();

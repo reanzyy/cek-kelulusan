@@ -75,7 +75,7 @@ Admin
                                         </div>
                                         <div class="media-body white text-right">
                                             <h3>{{ $student_pending }}</h3>
-                                            <span>Kelulusan Tertunda</span>
+                                            <span>Siswa Tidak Lulus</span>
                                         </div>
                                     </div>
                                 </div>

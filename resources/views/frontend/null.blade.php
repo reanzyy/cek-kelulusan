@@ -82,13 +82,13 @@
                                     <br>
 
                                     <div class="card-body card-dashboard text-center">
-                                        <p class="text-dark">MASUKAN NO UJIAN DAN KLIK TOMBOL CEK</p>
+                                        <p class="text-dark">MASUKAN NISN DAN KLIK TOMBOL CEK</p>
 
                                         <br>
                                         <form @submit.prevent="submitSearch">
 
                                             <div class="form-group text-center">
-                                                <input type="text" v-model="search" class="form-control" id="maxlength-position-inside" placeholder="NO .UJIAN" maxlength="17" />
+                                                <input type="text" v-model="search" class="form-control" id="maxlength-position-inside" placeholder="NISN"  minlength="10"/>
                                             </div>
                                             <br>
                                             <button type="submit" class="btn btn-success">CEK</button>

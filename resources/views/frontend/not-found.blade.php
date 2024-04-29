@@ -76,7 +76,7 @@
                                         <div>
                                             <div class="alert alert-danger mb-4" role="alert">
 
-                                                <strong>NO UJIAN TIDAK DITEMUKAN</strong>
+                                                <strong>NISN TIDAK DITEMUKAN</strong>
 
 
                                             </div>
