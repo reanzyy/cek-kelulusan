@@ -52,12 +52,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::prefix('/student')->group(function () {
         Route::get('/', [StudentController::class, 'index']);
+        Route::get('/create', [StudentController::class, 'create']);
         Route::get('/upload', [StudentController::class, 'upload']);
-        Route::post('/', [StudentController::class, 'store']);
+        Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
         Route::post('/import_excel', [StudentController::class, 'import_excel']);
         Route::get('/edit/{id}', [StudentController::class, 'edit']);
         Route::get('/detail/{id}', [StudentController::class, 'detail']);
-        Route::patch('/{id}', [StudentController::class, 'update']);
+        Route::patch('/stedent/edit/{id}', [StudentController::class, 'update'])->name('student.update');
         Route::delete('/{id}', [StudentController::class, 'destroy']);
     });
 

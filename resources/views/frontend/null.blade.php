@@ -60,11 +60,11 @@
                                 <div class="card box-shadow-sm">
                                     <div class="card-content collpase show">
                                         <div class="card-body card-dashboard text-center">
-                                            <p class="text-dark">MASUKAN NO UJIAN DAN KLIK TOMBOL CEK</p>
+                                            <p class="text-dark">MASUKAN NIS DAN KLIK TOMBOL CEK</p>
                                             <form @submit.prevent="submitSearch">
                                                 <div class="form-group text-center">
                                                     <input type="text" v-model="search" class="form-control"
-                                                        id="maxlength-position-inside" placeholder="NO .UJIAN"
+                                                        id="maxlength-position-inside" placeholder="NIS"
                                                         maxlength="17" />
                                                 </div>
                                                 <br>

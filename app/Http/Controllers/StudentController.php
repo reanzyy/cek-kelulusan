@@ -48,7 +48,7 @@ class StudentController extends Controller
 
     public function create()
     {
-        //
+        return view('admin.student.create');
     }
 
     /**
@@ -59,7 +59,23 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nisn' => 'required',
+            'name' => 'required',
+            'class' => 'required',
+            'status' => 'required',
+            'path' => 'required',
+        ]);
+
+        $student = new Student();
+        $student->nisn = $request->nisn;
+        $student->name = $request->name;
+        $student->class = $request->class;
+        $student->status = $request->status;
+        $student->path = $request->path;
+        $student->save();
+
+        return redirect('/student');
     }
 
     /**
@@ -106,7 +122,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+
+        return view('admin.student.edit', compact('student'));
     }
 
     /**
@@ -118,7 +136,24 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Student::find($id);
+
+        $request->validate([
+            'nisn' => 'required',
+            'name' => 'required',
+            'class' => 'required',
+            'status' => 'required',
+            'path' => 'required',
+        ]);
+
+        $student->nisn = $request->nisn;
+        $student->name = $request->name;
+        $student->class = $request->class;
+        $student->status = $request->status;
+        $student->path = $request->path;
+        $student->save();
+
+        return redirect('/student');
     }
 
     /**
@@ -133,7 +168,7 @@ class StudentController extends Controller
         try {
             $student->delete();
             return [
-                'message' => 'data has been deleted',
+                'message' => 'Data berhasil dihapus!',
                 'error' => false,
                 'code' => 200,
             ];

@@ -60,10 +60,10 @@
                                 <div class="card box-shadow-0 border-info">
                                     <div class="card-content collpase show">
                                         <div class="card-body card-dashboard text-center">
-                                            <div v-for="st in student" v-if="search == st.no_exam ">
+                                            <div v-for="st in student" v-if="search == st.nisn">
                                                 @if ($st->status == 1)
                                                     <div class="alert alert-success" role="alert"
-                                                        v-if="st.status == 1">
+                                                        v-if="st.status == 'LULUS'">
                                                         <strong>Selamat! {{ $st->name }}</strong>
                                                         <p>ANDA DINYATAKAN LULUS DARI SMK NEGERI 1 CIREBON</p>
                                                         <br>
@@ -92,10 +92,10 @@
                                                         <a href="/" class="btn btn-primary btn-sm">Kembali</a>
                                                     </div>
                                                 @elseif($st->status == 2)
-                                                    <div class="alert alert-danger" role="alert" v-if="st.status == 2"
-                                                        v-if="search != st.no_exam">
+                                                    <div class="alert alert-danger" role="alert" v-if="st.status == 'TIDAK LULUS'"
+                                                        v-if="search != st.nisn">
                                                         <strong>Mohon Maaf {{ $st->name }}</strong>
-                                                        <p>ANDA TIDAK LULUS DARI SMK NEGERI 1 CIREBON</p>
+                                                        <p>ANDA DINYATAKAN TIDAK LULUS DARI SMK NEGERI 1 CIREBON</p>
                                                         <div class="text-start">
                                                             <h5 class="text-dark"><b>NIS</b>&nbsp; &nbsp; &nbsp;
                                                                 &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nisn }}</h5>
@@ -111,7 +111,7 @@
                                                         <a href="/" class="btn btn-primary btn-sm">Kembali</a>
                                                     </div>
                                                 @else
-                                                    <div v-for="st in student" v-if="search != st.no_exam">
+                                                    <div v-for="st in student" v-if="search != st.nisn">
                                                         <div class="alert alert-danger" role="alert">
                                                             <strong>NO UJIAN TIDAK DITEMUKAN</strong>
                                                         </div>
