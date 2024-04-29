@@ -12,9 +12,12 @@
 
             <li class=" nav-item"><a href="/setting"><i class="ft-airplay"></i><span class="menu-title" data-i18n="">Pengumuman</span></a>
             </li>
-            <li class=" nav-item"><a href="/skl"><i class="ft-file-text"></i><span class="menu-title" data-i18n="">Cetak SKL</span></a>
-            </li>
             <li class=" nav-item"><a href="/web"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Manage Web</span></a>
+            </li>
+            <li class=" navigation-header"><span>Menu Auth</span><i class="icon-ellipsis ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Support"></i>
+            <li class=" nav-item"><a href="/profile"><i class="ft-user"></i><span class="menu-title" data-i18n="">Edit Profile</span></a>
+            </li>
+            <li class=" nav-item"><a href="/logout"><i class="ft-power"></i><span class="menu-title" data-i18n="">Logout</span></a>
             </li>
 
 

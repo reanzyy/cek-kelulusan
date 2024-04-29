@@ -51,10 +51,14 @@ Pengumuman
                             </tr>
                             <!--end tr-->
                             <tr>
-                                <td class="font-14"><b>DIMULAI PADA :</b></td>
+                                <td class="font-14"><b>DIMULAI PADA TANGGAL</b></td>
                                 <td class="font-14">&nbsp;: &nbsp; &nbsp; @{{ setting.date }}</td>
                             </tr>
 
+                            <tr>
+                                <td class="font-14"><b>DIMULAI PADA JAM</b></td>
+                                <td class="font-14">&nbsp;: &nbsp; &nbsp; @{{ setting.time }}</td>
+                            </tr>
 
 
 

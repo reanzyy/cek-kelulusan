@@ -25,6 +25,7 @@ class HomeController extends Controller
         $dt = Carbon::now()->format('Y-m-d H:i:s');
 
         $student = Student::query()->where('nisn', $req_search)->get();
+        $st = $student->first();
         $studentCheck =  $student->count();
 
         if (isset($req_search)) {
@@ -33,6 +34,7 @@ class HomeController extends Controller
                 return view('frontend.index', [
                     'web' => $web,
                     'student' => $student,
+                    'st' => $st,
                     'setting' => $setting,
                     'req_search' => $req_search,
                     'dt' => $dt,
