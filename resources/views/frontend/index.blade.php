@@ -60,27 +60,16 @@
                                 <div class="card box-shadow-0 border-info">
                                     <div class="card-content collpase show">
                                         <div class="card-body card-dashboard text-center">
-<<<<<<< HEAD
                                             <div v-for="st in student" v-if="search == st.nis">
                                                 @if ($st->status == 'LULUS')
                                                     <div class="alert alert-success" role="alert"
                                                         v-if="st.status == 'LULUS'">
-=======
-                                            <div v-for="st in student" v-if="search == st.no_exam ">
-                                                @if ($st->status == 1)
-                                                    <div class="alert alert-success" role="alert"
-                                                        v-if="st.status == 1">
->>>>>>> a1d79b0 (fixing responsive and layout)
                                                         <strong>Selamat! {{ $st->name }}</strong>
                                                         <p>ANDA DINYATAKAN LULUS DARI SMK NEGERI 1 CIREBON</p>
                                                         <br>
                                                         <div class="text-start">
                                                             <h5 class="text-dark"><b>NIS</b>&nbsp; &nbsp; &nbsp;
-<<<<<<< HEAD
                                                                 &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nis }}
-=======
-                                                                &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nisn }}
->>>>>>> a1d79b0 (fixing responsive and layout)
                                                             </h5>
                                                             <br>
                                                             <h5 class="text-dark"><b>NAMA</b>&nbsp; &nbsp; &nbsp;
@@ -90,7 +79,6 @@
                                                                 &nbsp; : {{ $st->class }}</h5>
                                                         </div>
                                                     </div>
-<<<<<<< HEAD
                                                 @else
                                                     <div class="alert alert-danger" role="alert" v-if="st.status == 'TIDAK LULUS'"
                                                         v-if="search != st.nis">
@@ -99,7 +87,6 @@
                                                         <div class="text-start">
                                                             <h5 class="text-dark"><b>NIS</b>&nbsp; &nbsp; &nbsp;
                                                                 &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nis }}</h5>
-=======
                                                     <div>
                                                         <a href="/" class="btn btn-success btn-sm">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
@@ -112,15 +99,6 @@
                                                             Cetak SKL</a>
                                                         <a href="/" class="btn btn-primary btn-sm">Kembali</a>
                                                     </div>
-                                                @elseif($st->status == 2)
-                                                    <div class="alert alert-danger" role="alert" v-if="st.status == 2"
-                                                        v-if="search != st.no_exam">
-                                                        <strong>Mohon Maaf {{ $st->name }}</strong>
-                                                        <p>ANDA TIDAK LULUS DARI SMK NEGERI 1 CIREBON</p>
-                                                        <div class="text-start">
-                                                            <h5 class="text-dark"><b>NIS</b>&nbsp; &nbsp; &nbsp;
-                                                                &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nisn }}</h5>
->>>>>>> a1d79b0 (fixing responsive and layout)
                                                             <br>
                                                             <h5 class="text-dark"><b>NAMA</b>&nbsp; &nbsp; &nbsp;
                                                                 &nbsp; : {{ $st->name }}</h5>
