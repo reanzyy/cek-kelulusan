@@ -60,15 +60,29 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nisn' => 'required',
-            'name' => 'required',
-            'class' => 'required',
-            'status' => 'required',
+            'nis' => 'required|unique:students,nis|min:5|max:10',
+            'name' => 'required|min:5|max:255',
+            'class' => 'required|min:5|max:255',
+            'status' => 'required|in:LULUS,TIDAK LULUS',
             'path' => 'required',
+        ],[
+            'nis.required' => 'NIS harus diisi!!',
+            'nis.unique' => 'NIS sudah digunakan!',
+            'nis.min' => 'Minimal 5 Karakter!',
+            'nis.max' => 'Maksimal 10 karakter!',
+            'name.required' => 'Nama harus diisi!',
+            'name.min' => 'Minimal 5 Karakter!',
+            'name.max' => 'Maksimal 255 karakter!',
+            'class.required' => 'Kelas harus diisi!',
+            'class.min' => 'Minimal 5 karakter!',
+            'class.max' => 'Maksimal 255 karakter!',
+            'status.required' => 'Status harus diisi!',
+            'status.in' => 'Status hanya diisi LULUS / TIDAK LULUS!',
+            'path.required' => 'SKL harus diisi'
         ]);
 
         $student = new Student();
-        $student->nisn = $request->nisn;
+        $student->nis = $request->nis;
         $student->name = $request->name;
         $student->class = $request->class;
         $student->status = $request->status;
@@ -91,28 +105,31 @@ class StudentController extends Controller
 
     public function import_excel(Request $request)
     {
-        // validasi
-        $this->validate($request, [
-            'file' => 'required|mimes:csv,xls,xlsx'
-        ]);
+        try {
+            // validasi
+            $this->validate($request, [
+                'file' => 'required|mimes:csv,xls,xlsx'
+            ]);
 
-        // menangkap file excel
-        $file = $request->file('file');
+            // menangkap file excel
+            $file = $request->file('file');
 
-        // membuat nama file unik
-        $nama_file = rand() . $file->getClientOriginalName();
+            // membuat nama file unik
+            $nama_file = rand() . $file->getClientOriginalName();
 
-        // upload ke folder file_siswa di dalam folder public
-        $file->move('files/excel', $nama_file);
+            // upload ke folder file_siswa di dalam folder public
+            $file->move('files/excel', $nama_file);
 
-        // import data
-        Excel::import(new StudentImport, 'files/excel/' . $nama_file);
+            // import data
+            Excel::import(new StudentImport, 'files/excel/' . $nama_file);
 
-
-        // alihkan halaman kembali
-        return redirect('/student');
+            // alihkan halaman kembali
+            return redirect('/student')->with('success', 'Data berhasil diimpor.');
+        } catch (\Throwable $th) {
+            // tangani pengecualian
+            return redirect('/student')->with('error', $th->getMessage());
+        }
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -139,14 +156,27 @@ class StudentController extends Controller
         $student = Student::find($id);
 
         $request->validate([
-            'nisn' => 'required',
-            'name' => 'required',
-            'class' => 'required',
-            'status' => 'required',
+            'nis' => 'required|min:5|max:10',
+            'name' => 'required|min:5|max:255',
+            'class' => 'required|min:5|max:255',
+            'status' => 'required|in:LULUS,TIDAK LULUS',
             'path' => 'required',
+        ],[
+            'nis.required' => 'NIS harus diisi!',
+            'nis.min' => 'Minimal 5 Karakter!',
+            'nis.max' => 'Maksimal 10 karakter!',
+            'name.required' => 'Nama harus diisi!',
+            'name.min' => 'Minimal 5 Karakter!',
+            'name.max' => 'Maksimal 255 karakter!',
+            'class.required' => 'Kelas harus diisi!',
+            'class.min' => 'Minimal 5 karakter!',
+            'class.max' => 'Maksimal 255 karakter!',
+            'status.required' => 'Status harus diisi!',
+            'status.in' => 'Status hanya diisi LULUS / TIDAK LULUS!',
+            'path.required' => 'SKL harus diisi'
         ]);
 
-        $student->nisn = $request->nisn;
+        $student->nis = $request->nis;
         $student->name = $request->name;
         $student->class = $request->class;
         $student->status = $request->status;

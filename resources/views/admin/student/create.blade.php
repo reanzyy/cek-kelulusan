@@ -14,27 +14,48 @@
                         @method('POST')
                         @csrf
                         <div class="form-group">
-                            <label for="nisn">NISN</label>
-                            <input type="text" class="form-control" id="nisn" name="nisn" required>
+                            <label for="nis">NIS</label>
+                            <input type="number" class="form-control" id="nis" name="nis"
+                                value="{{ old('nis') }}">
+                            @error('nis')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="name">Nama</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <input type="text" class="form-control" id="name" name="name"
+                                value="{{ old('name') }}">
+                            @error('name')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="class">Kelas</label>
-                            <input type="text" class="form-control" id="class" name="class" required>
+                            <input type="text" class="form-control" id="class" name="class"
+                                value="{{ old('class') }}">
+                            @error('class')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>
-                            <select class="form-control" id="status" name="status" required>
-                                <option value="LULUS">LULUS</option>
-                                <option value="TIDAK LULUS">TIDAK LULUS</option>
+                            <select class="form-control" id="status" name="status">
+                                <option value="">Pilih status</option>
+                                <option value="LULUS" {{ old('status') == 'LULUS' ? 'selected' : '' }}>LULUS</option>
+                                <option value="TIDAK LULUS" {{ old('status') == 'TIDAK LULUS' ? 'selected' : '' }}>TIDAK LULUS</option>
                             </select>
+                            @error('status')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
+
                         <div class="form-group">
                             <label for="path">SKL</label>
-                            <input type="text" class="form-control" id="path" name="path" required>
+                            <input type="text" class="form-control" id="path" name="path"
+                                value="{{ old('path') }}">
+                            @error('path')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="card-footer text-end">
                             <a class="btn btn-secondary" href="/student">Back</a>

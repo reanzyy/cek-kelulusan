@@ -18,6 +18,13 @@
 @endsection
 
 @section('content')
+
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <div id="app" v-cloak>
         <div class="row">
             <div class="col-12">
@@ -51,7 +58,7 @@
                                     <tr class="bg-success text-white" style="font-size: 14px;">
                                         <th>Nama</th>
                                         <th>Kelas</th>
-                                        <th>NISN</th>
+                                        <th>NIS</th>
                                         <th>Status </th>
                                         <th>SKL</th>
                                         <th>Aksi</th>
@@ -64,7 +71,7 @@
 
                                         <td>@{{ st.name }}</td>
                                         <td>@{{ st.class }}</td>
-                                        <td>@{{ st.nisn }}</td>
+                                        <td>@{{ st.nis }}</td>
                                         <td>
                                             <span v-if="st.status == 'LULUS'" class="badge bg-success">LULUS</span>
                                             <span v-else class="badge bg-danger">TIDAK LULUS</span>

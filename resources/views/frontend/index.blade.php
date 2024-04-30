@@ -84,7 +84,7 @@
                                     <div class="card-body card-dashboard text-center">
 
                                         @if(isset($req_search))
-                                        <div v-for="st in student" v-if="search == st.nisn ">
+                                        <div v-for="st in student" v-if="search == st.nis ">
                                             <div class="alert alert-success" role="alert" v-if="st.status == 'LULUS'">
                                                 <strong>Selamat! @{{ st.name }}</strong>
                                                 ANDA DINYATAKAN LULUS DARI SMK NEGERI 1 CIREBON
@@ -127,10 +127,10 @@
 
                                         </div>
 
-                                        <div v-for="st in student" v-if="search != st.nisn">
+                                        <div v-for="st in student" v-if="search != st.nis">
                                             <div class="alert alert-danger" role="alert">
 
-                                                <strong>NISN TIDAK DITEMUKAN</strong>
+                                                <strong>NIS TIDAK DITEMUKAN</strong>
 
 
                                             </div>
