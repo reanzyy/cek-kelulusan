@@ -96,7 +96,7 @@
 
 
         <tr>
-            <td width="200">NISN</td>
+            <td width="200">NIS</td>
             <td width="1">:</td>
             <td>{{ $student->no_exam }}</td>
         </tr>

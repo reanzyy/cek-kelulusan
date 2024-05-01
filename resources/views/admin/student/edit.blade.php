@@ -14,32 +14,47 @@
                         @method('PATCH')
                         @csrf
                         <div class="form-group">
-                            <label for="nisn">NISN</label>
-                            <input type="text" class="form-control" id="nisn" name="nisn"
-                                value="{{ $student->nisn }}" required>
+                            <label for="nis">NIS</label>
+                            <input type="text" class="form-control" id="nis" name="nis"
+                                value="{{ $student->nis }}">
+                            @error('nis')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="name">Nama</label>
                             <input type="text" class="form-control" id="name" name="name"
-                                value="{{ $student->name }}" required>
+                                value="{{ $student->name }}">
+                            @error('name')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="class">Kelas</label>
                             <input type="text" class="form-control" id="class" name="class"
-                                value="{{ $student->class }}" required>
+                                value="{{ $student->class }}">
+                            @error('class')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>
-                            <select class="form-control" id="status" name="status" required>
+                            <select class="form-control" id="status" name="status">
                                 <option value="LULUS" {{ $student->status == 'LULUS' ? 'selected' : '' }}>LULUS</option>
                                 <option value="TIDAK LULUS" {{ $student->status == 'TIDAK LULUS' ? 'selected' : '' }}>TIDAK
                                     LULUS</option>
                             </select>
+                            @error('status')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="path">SKL</label>
                             <input type="text" class="form-control" id="path" name="path"
-                                value="{{ $student->path }}" required>
+                                value="{{ $student->path }}">
+                            @error('path')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="card-footer text-end">
                             <a class="btn btn-secondary" href="/student">Back</a>

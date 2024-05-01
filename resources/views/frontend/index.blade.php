@@ -60,7 +60,7 @@
                                 <div class="card box-shadow-0 border-info">
                                     <div class="card-content collpase show">
                                         <div class="card-body card-dashboard text-center">
-                                            <div v-for="st in student" v-if="search == st.nisn">
+                                            <div v-for="st in student" v-if="search == st.nis">
                                                 @if ($st->status == 'LULUS')
                                                     <div class="alert alert-success" role="alert"
                                                         v-if="st.status == 'LULUS'">
@@ -69,7 +69,7 @@
                                                         <br>
                                                         <div class="text-start">
                                                             <h5 class="text-dark"><b>NIS</b>&nbsp; &nbsp; &nbsp;
-                                                                &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nisn }}
+                                                                &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nis }}
                                                             </h5>
                                                             <br>
                                                             <h5 class="text-dark"><b>NAMA</b>&nbsp; &nbsp; &nbsp;
@@ -80,13 +80,13 @@
                                                         </div>
                                                     </div>
                                                 @else
-                                                    <div class="alert alert-danger" role="alert" v-if="st.status == 'TIDAK LULUS'"
-                                                        v-if="search != st.nisn">
+                                                    <div class="alert alert-danger" role="alert"
+                                                        v-if="st.status == 'TIDAK LULUS'" v-if="search != st.nis">
                                                         <strong>Mohon Maaf {{ $st->name }}</strong>
                                                         <p>ANDA DINYATAKAN TIDAK LULUS DARI SMK NEGERI 1 CIREBON</p>
                                                         <div class="text-start">
                                                             <h5 class="text-dark"><b>NIS</b>&nbsp; &nbsp; &nbsp;
-                                                                &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nisn }}</h5>
+                                                                &nbsp; &nbsp; &nbsp; &nbsp; : {{ $st->nis }}</h5>
                                                             <br>
                                                             <h5 class="text-dark"><b>NAMA</b>&nbsp; &nbsp; &nbsp;
                                                                 &nbsp; : {{ $st->name }}</h5>
@@ -97,11 +97,11 @@
                                                     </div>
                                                 @endif
                                                 <div>
-                                                    <a href="{{ $st->path }}" target="_blank" class="btn btn-success btn-sm">
+                                                    <a href="{{ $st->path }}" target="_blank"
+                                                        class="btn btn-success btn-sm">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                             height="16" fill="currentColor"
-                                                            class="bi bi-file-earmark-check-fill"
-                                                            viewBox="0 0 16 16">
+                                                            class="bi bi-file-earmark-check-fill" viewBox="0 0 16 16">
                                                             <path
                                                                 d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm1.354 4.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
                                                         </svg>
@@ -139,8 +139,7 @@
                                 <span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="#">© 2024
                                     {{ $web->title }}.</span>
                             </div>
-                            <ul
-                                class="menu menu-gray-600 menu-hover-primary fw-bold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
+                            <ul class="menu menu-gray-600 menu-hover-primary fw-bold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
                             </ul>
                         </div>
                     </div>
