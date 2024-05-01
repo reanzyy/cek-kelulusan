@@ -47,15 +47,15 @@
                         <div class="tex-center mb-6">
                             <img alt="Logo" src="/files/logo/graduates.png" width="180px">
                         </div>
-                        <div
+                        <br>
+                        {{-- <div
                             class="alert alert-dismissible bg-light-warning border border-primary d-flex flex-column flex-sm-row p-5 mb-10">
                             <!--begin::Title-->
                             <h4 class="card-title text-dark" id="demo"></h4>
                             <!--end::Content-->
-                        </div>
+                        </div> --}}
                         <!--end::Alert-->
                         @if ($setting->status == 1)
-                            <h3 class="text-white mb-15">SILAHKAN CEK KELULUSAN ANDA</h3>
                             <div class="col-xl-12" v-if="currentDate() <= 0">
                                 <div class="card box-shadow-0 border-info">
                                     <div class="card-content collpase show">
