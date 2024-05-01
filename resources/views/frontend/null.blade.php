@@ -53,9 +53,10 @@
                             <h4 class="text-dark" id="demo"></h4>
                             <!--end::Content-->
                         </div>
+                        <br>
                         <!--end::Alert-->
                         @if ($setting->status == 1)
-                            <h3 class="text-white mb-15">SILAHKAN CEK KELULUSAN ANDA</h3>
+                            <h3 class="text-white mb-15" id="title-info"></h3>
                             <div class="col-xl-12" v-if="currentDate() <= 0">
                                 <div class="card box-shadow-sm">
                                     <div class="card-content collpase show">
@@ -77,9 +78,8 @@
                             </div>
                         @else
                             <div id="kick-start" class="card text-center bg-warning">
-                                <div class="card-header">
-                                    <h4 class="card-title text-white">PENGUMUMAN KELULUSAN BELUM DI BUKA</h4>
-                                    <a class="heading-elements-toggle"></a>
+                                <div class="card-header rounded-2">
+                                    <h4 class="card-title text-white">PENGUMUMAN KELULUSAN DITUTUP</h4>
                                 </div>
                             </div>
                         @endif
@@ -205,11 +205,13 @@
             "<span class='badge badge-success'>HITUNG MUNDUR PENGUMUMAN</span> :  " + days + "Hari - " + hours +
             "Jam - " +
             minutes + "Menit - " + seconds + "Detik ";
+        document.getElementById("title-info").innerHTML = "PENGUMUMAN KELULUSAN BELUM DIMULAI";
 
         // If the count down is over, write some text
         if (distance < 0) {
             clearInterval(x);
             document.getElementById("demo").innerHTML = "PENGUMUMAN SUDAH DIBUKA";
+            document.getElementById("title-info").innerHTML = "SILAHKAN CEK KELULUSAN ANDA";
         }
     }, 1000);
 </script>
