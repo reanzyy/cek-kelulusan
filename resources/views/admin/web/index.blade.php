@@ -31,8 +31,8 @@ Data Web
     </div>
     <br>
 
-    <div class="row">
-        <div class="col-8">
+    <div class="row flex-md-row flex-column-reverse">
+        <div class="col-12 col-md-8">
 
             <div class="card box-shadow-0 border-info">
                 <div class="card-header card-head-inverse bg-secondary">
@@ -76,7 +76,7 @@ Data Web
                 </div>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-md-4">
 
 
             <div class="card box-shadow-0 border-info text-center">

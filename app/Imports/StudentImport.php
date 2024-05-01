@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\Student;
+use Exception;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 
@@ -21,15 +22,18 @@ class StudentImport implements ToModel, WithStartRow
 
     public function model(array $row)
     {
+        $existingStudent = Student::where('nis', $row[1])->first();
+
+        if ($existingStudent) {
+            throw new Exception(' NIS ' . $row['1'] . ' telah digunakan');
+        }
+
         return new Student([
-            'nisn' => $row[1],
+            'nis' => $row[1],
             'name' => $row[2],
-            'nama_ortu' => $row[3],
-            'tempat_tgl_lahir' => $row[4],
-            'no_exam' => $row[5],
-            'class' => $row[6],
-            'status' => $row[7],
-            'message' => $row[8],
+            'class' => $row[3],
+            'status' => strtoupper($row[4]),
+            'path' => $row[5],
         ]);
     }
 }

@@ -22,7 +22,11 @@ Pengumuman
 <div id="app" v-cloak>
 
 
-    <br>
+    <a :href="'/setting/edit/'+ setting.id" class="btn btn-social btn-min-width my-1 btn-secondary float-right">
+        <span class="fa fa-pencil"></span> EDIT PENGUMUMAN &nbsp;
+    </a>
+
+    <div style="clear: both;"></div>
 
     <div class="row">
         <div class="col-12">
@@ -39,9 +43,6 @@ Pengumuman
 
 
                     <div class="card-body card-dashboard">
-                        <a :href="'/setting/edit/'+ setting.id" class="btn btn-social btn-min-width mr-1 mb-1 btn-secondary pull-right" class="float-sm-left">
-                            <span class="fa fa-pencil"></span> EDIT PENGUMUMAN &nbsp; </a>
-                        <br>
 
                         <table>
                             <tr>
@@ -51,10 +52,14 @@ Pengumuman
                             </tr>
                             <!--end tr-->
                             <tr>
-                                <td class="font-14"><b>DIMULAI PADA :</b></td>
+                                <td class="font-14"><b>DIMULAI PADA TANGGAL</b></td>
                                 <td class="font-14">&nbsp;: &nbsp; &nbsp; @{{ setting.date }}</td>
                             </tr>
 
+                            <tr>
+                                <td class="font-14"><b>DIMULAI PADA JAM</b></td>
+                                <td class="font-14">&nbsp;: &nbsp; &nbsp; @{{ setting.time }}</td>
+                            </tr>
 
 
 
