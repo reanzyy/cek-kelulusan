@@ -64,8 +64,8 @@ class StudentController extends Controller
             'name' => 'required|min:5|max:255',
             'class' => 'required|min:5|max:255',
             'status' => 'required|in:LULUS,TIDAK LULUS',
-            'path' => 'required',
-        ],[
+            'path' => 'required|url',
+        ], [
             'nis.required' => 'NIS harus diisi!!',
             'nis.unique' => 'NIS sudah digunakan!',
             'nis.min' => 'Minimal 5 Karakter!',
@@ -78,7 +78,8 @@ class StudentController extends Controller
             'class.max' => 'Maksimal 255 karakter!',
             'status.required' => 'Status harus diisi!',
             'status.in' => 'Status hanya diisi LULUS / TIDAK LULUS!',
-            'path.required' => 'SKL harus diisi'
+            'path.required' => 'Link SKL harus diisi',
+            'path.url' => 'Link SKL tidak valid'
         ]);
 
         $student = new Student();
@@ -160,8 +161,8 @@ class StudentController extends Controller
             'name' => 'required|min:5|max:255',
             'class' => 'required|min:5|max:255',
             'status' => 'required|in:LULUS,TIDAK LULUS',
-            'path' => 'required',
-        ],[
+            'path' => 'required|url',
+        ], [
             'nis.required' => 'NIS harus diisi!',
             'nis.min' => 'Minimal 5 Karakter!',
             'nis.max' => 'Maksimal 10 karakter!',
@@ -173,7 +174,8 @@ class StudentController extends Controller
             'class.max' => 'Maksimal 255 karakter!',
             'status.required' => 'Status harus diisi!',
             'status.in' => 'Status hanya diisi LULUS / TIDAK LULUS!',
-            'path.required' => 'SKL harus diisi'
+            'path.required' => 'Link SKL harus diisi',
+            'path.url' => 'Link SKL tidak valid'
         ]);
 
         $student->nis = $request->nis;

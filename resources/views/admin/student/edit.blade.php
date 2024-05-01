@@ -49,7 +49,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="path">SKL</label>
+                            <label for="path">Link SKL</label>
                             <input type="text" class="form-control" id="path" name="path"
                                 value="{{ $student->path }}">
                             @error('path')
