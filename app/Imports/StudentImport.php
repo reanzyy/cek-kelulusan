@@ -22,17 +22,21 @@ class StudentImport implements ToModel, WithStartRow
 
     public function model(array $row)
     {
-        $existingStudent = Student::where('nis', $row[1])->first();
+        if (empty($row[1]) || empty($row[2]) || empty($row[3]) || empty($row[5])) {
+            return null;
+        }
+
+        $existingStudent = Student::where('nis', $row[3])->exists();
 
         if ($existingStudent) {
-            throw new Exception(' NIS ' . $row['1'] . ' telah digunakan');
+            return null;
         }
 
         return new Student([
-            'nis' => $row[1],
+            'nis' => $row[3],
             'name' => $row[2],
-            'class' => $row[3],
-            'status' => strtoupper($row[4]),
+            'class' => $row[1],
+            'status' => strtoupper('LULUS'),
             'path' => $row[5],
         ]);
     }

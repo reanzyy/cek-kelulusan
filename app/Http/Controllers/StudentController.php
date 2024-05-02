@@ -19,7 +19,7 @@ class StudentController extends Controller
     public function index()
     {
 
-        $student = Student::all();
+        $student = Student::orderBy('id', 'ASC')->get();
         return view('admin.student.index', [
             'student' => $student,
         ]);
@@ -197,20 +197,8 @@ class StudentController extends Controller
     public function destroy($id)
     {
         $student = Student::find($id);
-        try {
-            $student->delete();
-            return [
-                'message' => 'Data berhasil dihapus!',
-                'error' => false,
-                'code' => 200,
-            ];
-        } catch (Exception $e) {
-            return [
-                'message' => 'internal error',
-                'error' => true,
-                'code' => 500,
-                'errors' => $e,
-            ];
-        }
+        $student->delete();
+
+        return back();
     }
 }
