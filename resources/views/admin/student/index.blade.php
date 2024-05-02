@@ -6,7 +6,7 @@
 
 
 @section('head')
-    <style>
+    {{-- <style>
         [v-cloak]>* {
             display: none;
         }
@@ -14,7 +14,7 @@
         [v-cloak]::before {
             content: "loading...";
         }
-    </style>
+    </style> --}}
 @endsection
 
 @section('content')
@@ -56,6 +56,7 @@
                             <table id="example" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr class="bg-success text-white" style="font-size: 14px;">
+                                        <th>No</th>
                                         <th>Nama</th>
                                         <th>Kelas</th>
                                         <th>NIS</th>
@@ -67,25 +68,31 @@
                                 <tbody>
 
 
-                                    <tr style="font-size: 14px;" v-for="st in student">
+                                    @foreach ($student as $item)
+                                    <tr style="font-size: 14px;">
 
-                                        <td>@{{ st.name }}</td>
-                                        <td>@{{ st.class }}</td>
-                                        <td>@{{ st.nis }}</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->class }}</td>
+                                        <td>{{ $item->nis }}</td>
                                         <td>
-                                            <span v-if="st.status == 'LULUS'" class="badge bg-success">LULUS</span>
-                                            <span v-else class="badge bg-danger">TIDAK LULUS</span>
+                                            <span class="badge bg-success">LULUS</span>
                                         </td>
                                         <td>
-                                            <a :href="st.path" target="_blank">Lihat Dokumen</a>
+                                            <a href="{{ $item->path }}" target="_blank">Lihat Dokumen</a>
                                         </td>
 
                                         <td>
-                                            <a class="btn btn-warning" :href="'/student/edit/' + st.id"><i class="fa fa-edit"></i></a>
-                                            <a class="btn btn-danger" href="" @click.prevent="deleteRecord(st.id)"><i class="fa fa-trash"></i></a>
+                                            <a class="btn btn-warning" href="/student/edit/{{ $item->id }}"><i class="fa fa-edit"></i></a>
+                                            <form action="/student/{{ $item->id }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                            </form>
                                         </td>
 
                                     </tr>
+                                    @endforeach
 
 
                                 </tbody>
@@ -104,7 +111,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 
-    <script>
+    {{-- <script>
         new Vue({
             el: '#app',
             data: {
@@ -157,5 +164,5 @@
 
             }
         })
-    </script>
+    </script> --}}
 @endsection
